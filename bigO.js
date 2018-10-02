@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Even or odd
 function isEven(value) {
@@ -49,7 +49,7 @@ function naiveSearch(array, item) {
 function createPairs(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
-      console.log(arr[i] + ', ' + arr[j]);
+      console.log(arr[i] + ", " + arr[j]);
     }
   }
 }
@@ -138,7 +138,7 @@ function isPrime(n) {
 function countSheep(num) {
   //stopping condition of base case
   if (num === 0) {
-    console.log('All sheep jumped over the fence');
+    console.log("All sheep jumped over the fence");
   }
   //this is the recursive case
   //this will be executed until it reaches base case
@@ -202,15 +202,14 @@ function convertToBinary(num) {
     //carry the reminder to the next recursion call
     return convertToBinary(Math.floor(num / 2)) + binary;
   } else {
-    return ''; //base case - at some point the divisions will lead to 0
+    return ""; //base case - at some point the divisions will lead to 0
   }
 }
 
 // O(log(n)) - logarithmic
 
-
 //Exercise 7 - Factorial
-function factorial(n) {  
+function factorial(n) {
   // Base Case - when n is equal to 0, we stop the recursion
   if (n === 0) {
     return 1;
@@ -222,7 +221,6 @@ function factorial(n) {
 
 //answer: O(n) - linear
 
-
 //Exercise 8 - Fibonacci
 function fibonacci(n) {
   // Base case
@@ -232,44 +230,41 @@ function fibonacci(n) {
   // Base case
   if (n <= 2) {
     return 1;
-  }	
+  }
   // Recursive case
-  return fibonacci(n - 1) + fibonacci(n - 2);	
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 //answer: O(2^n) - Exponential
 
-
 //Exercise 9 - Anagrams
-function anagrams(prefix, str){
-  if(str.length <= 1){
+function anagrams(prefix, str) {
+  if (str.length <= 1) {
     console.log(`The anagram is ${prefix}${str}`);
   } else {
-    for(let i=0; i<str.length; i++){
-      let currentLetter = str.substring(i, i+1); 
-      let previousLetters = str.substring(0,i);
-      let afterLetters = str.substring(i+1);
-      anagrams(prefix+currentLetter, previousLetters+afterLetters);
+    for (let i = 0; i < str.length; i++) {
+      let currentLetter = str.substring(i, i + 1);
+      let previousLetters = str.substring(0, i);
+      let afterLetters = str.substring(i + 1);
+      anagrams(prefix + currentLetter, previousLetters + afterLetters);
     }
   }
 }
-function printAnagram(word){
+function printAnagram(word) {
   //console.log(`The word for which we will find an anagram is ${word}`);
-  anagrams(' ', word);
-
+  anagrams(" ", word);
 }
 
 //answer: O(n) - Linear
 
-
 //Exercise 10 - Animal Hierarchy
 const animalHierarchy = [
-  {id: 'Animals', parent: null},
-  {id: 'Mammals', parent: 'Animals'},
-  {id: 'Dogs', parent:'Mammals' },
-  {id: 'Cats', parent:'Mammals' },
-  {id: 'Golden Retriever', parent: 'Dogs'},
-  {id: 'Husky', parent:'Dogs' },
-  {id: 'Bengal', parent:'Cats' }
+  { id: "Animals", parent: null },
+  { id: "Mammals", parent: "Animals" },
+  { id: "Dogs", parent: "Mammals" },
+  { id: "Cats", parent: "Mammals" },
+  { id: "Golden Retriever", parent: "Dogs" },
+  { id: "Husky", parent: "Dogs" },
+  { id: "Bengal", parent: "Cats" }
 ];
 
 // ==============================
@@ -277,92 +272,196 @@ function traverse(animalHierarchy, parent) {
   let node = {};
   animalHierarchy
     .filter(item => item.parent === parent)
-    .forEach(item => node[item.id] = traverse(animalHierarchy, item.id));
-  return node;  
+    .forEach(item => (node[item.id] = traverse(animalHierarchy, item.id)));
+  return node;
 }
 
 //answer: O(n) - Linear
 
 //Exercise 11 - Organization Chart
 let organization = {
-  'Zuckerberg': {		
-    'Schroepfer': {
-      'Bosworth': {
-        'Steve':{},
-        'Kyle':{},
-        'Andra':{}
+  Zuckerberg: {
+    Schroepfer: {
+      Bosworth: {
+        Steve: {},
+        Kyle: {},
+        Andra: {}
       },
-      'Zhao': {
-        'Richie':{},
-        'Sofia':{},
-        'Jen':{}
+      Zhao: {
+        Richie: {},
+        Sofia: {},
+        Jen: {}
       },
-      'Badros': {
-        'John':{},
-        'Mike':{},
-        'Pat':{}
+      Badros: {
+        John: {},
+        Mike: {},
+        Pat: {}
       },
-      'Parikh': {
-        'Zach':{},
-        'Ryan':{},
-        'Tes':{}
+      Parikh: {
+        Zach: {},
+        Ryan: {},
+        Tes: {}
       }
     },
-    'Schrage': {
-      'VanDyck': {
-        'Sabrina':{},
-        'Michelle':{},
-        'Josh':{}
+    Schrage: {
+      VanDyck: {
+        Sabrina: {},
+        Michelle: {},
+        Josh: {}
       },
-      'Swain': {
-        'Blanch':{},
-        'Tom':{},
-        'Joe':{}
+      Swain: {
+        Blanch: {},
+        Tom: {},
+        Joe: {}
       },
-      'Frankovsky': {
-        'Jasee':{},
-        'Brian':{},
-        'Margaret':{}
+      Frankovsky: {
+        Jasee: {},
+        Brian: {},
+        Margaret: {}
       }
     },
-    'Sandberg': {
-      'Goler': {
-        'Eddie':{},
-        'Julie':{},
-        'Annie':{}
+    Sandberg: {
+      Goler: {
+        Eddie: {},
+        Julie: {},
+        Annie: {}
       },
-      'Hernandez': {
-        'Rowi':{},
-        'Inga':{},
-        'Morgan':{}
+      Hernandez: {
+        Rowi: {},
+        Inga: {},
+        Morgan: {}
       },
-      'Moissinac': {
-        'Amy':{},
-        'Chuck':{},
-        'Vinni':{}
+      Moissinac: {
+        Amy: {},
+        Chuck: {},
+        Vinni: {}
       },
-      'Kelley': {
-        'Eric':{},
-        'Ana':{},
-        'Wes':{}
+      Kelley: {
+        Eric: {},
+        Ana: {},
+        Wes: {}
       }
-    }}};
+    }
+  }
+};
 
 function traverseA(data, depth = 0) {
-  let indent = ' '.repeat(depth * 4);
+  let indent = " ".repeat(depth * 4);
   Object.keys(data).forEach(key => {
     console.log(indent + key);
     traverseA(data[key], depth + 1);
   });
 }
 
-function traverseB(node, indent=0) {
+function traverseB(node, indent = 0) {
   for (var key in node) {
-    console.log(' '.repeat(indent), key);
+    console.log(" ".repeat(indent), key);
     traverseB(node[key], indent + 4);
   }
 }
 
 //answer: O(n) - Linear
 
+// Iterative - Big O Notation
 
+// Counting Sheep
+function countSheepLoop(num) {
+  for (let i = num; i > 0; i--) {
+    console.log(`counting sheeps ${i}`);
+  }
+}
+countSheepLoop(10);
+// answer: O(n) - linear
+
+// Double Array
+
+function double_all(arr) {
+  var ret = Array(arr.length);
+  for (var i = 0; i < arr.length; ++i) {
+    ret[i] = arr[i] * 2;
+  }
+  return ret;
+}
+let arr = [10, 4, 5, 2, 1];
+console.log(double_all(arr));
+
+// answer: O(n) linear
+
+// reverse string
+function reverse_tail(str) {
+  var accumulator = "";
+  while (str !== "") {
+    accumulator = str[0] + accumulator;
+    str = str.slice(1);
+  }
+  return accumulator;
+}
+
+// answer: O(n) - linear
+
+// Nth triangle number
+
+function triangle(n) {
+  var tot = 0;
+  for (var i = 1; i <= n; ++i) {
+    tot += n;
+  }
+  return tot;
+}
+
+// O(n) - linear
+
+// String splitter
+function split(str, sep) {
+  var ret = [];
+  while (true) {
+    var idx = str.indexOf(sep);
+    if (idx == -1) break;
+    ret.push(str.slice(0, idx));
+    str = str.slice(idx + sep.length);
+  }
+  ret.push(str);
+  return ret;
+}
+
+// answer: O(n) - linear
+
+// Binary representation
+
+function convertToBinaryIter(num) {
+  var binary = "";
+  while (num > 0) {
+    let rem = Math.floor(num % 2);
+    binary = rem + binary;
+    num = Math.floor(num / 2);
+  }
+  return binary;
+}
+console.log(convertToBinaryIter(124)); //1111100
+
+// answer O(log(n)) - logarithmic
+
+// factorial
+function factorialIterative(number) {
+  let fact = 1;
+  for (let i = 1; i <= number; i++) {
+    fact *= i;
+  }
+  return fact;
+}
+console.log(factorialIterative(5));
+
+// answer: O(n) -linear
+
+// Fibonacci
+
+function fibonacciIterative2(number) {
+  let [num1, num2] = [1, 0];
+  while (number-- > 0) {
+    [num1, num2] = [num2 + num1, num1];
+  }
+  return num2;
+}
+console.log(fibonacciIterative2(3));
+
+// answer: O(2^n) - exponential time
