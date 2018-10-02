@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Even or odd
 function isEven(value) {
@@ -48,21 +48,19 @@ function naiveSearch(array, item) {
 
 function createPairs(arr) {
   for (let i = 0; i < arr.length; i++) {
-    for(let j = i+1; j < arr.length; j++) {
-      console.log(arr[i] + ", " +  arr[j] );
+    for (let j = i + 1; j < arr.length; j++) {
+      console.log(arr[i] + ", " + arr[j]);
     }
   }
 }
 
 //answer: O(n^2) - Polynomial
 
-
 //Computing fibbonacis
 
 function generateFib(num) {
   let result = [];
   for (let i = 1; i <= num; i++) {
-
     // we're adding the first item
     // to the result list, append the
     // number 0 to results
@@ -87,7 +85,6 @@ function generateFib(num) {
 
 //answer: O(n) - Linear
 
-
 //Efficient Search
 function efficientSearch(array, item) {
   let minIndex = 0;
@@ -101,11 +98,9 @@ function efficientSearch(array, item) {
 
     if (currentElement < item) {
       minIndex = currentIndex + 1;
-    }
-    else if (currentElement > item) {
+    } else if (currentElement > item) {
       maxIndex = currentIndex - 1;
-    }
-    else {
+    } else {
       return currentIndex;
     }
   }
@@ -114,14 +109,12 @@ function efficientSearch(array, item) {
 
 //answer: O(log n) - Logarithmic
 
-
 //Random element
 function findRandomElement(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
 //answer: O(1) - Constant
-
 
 // Is it prime?
 function isPrime(n) {
@@ -139,4 +132,78 @@ function isPrime(n) {
 
 //answer: O(n) - Linear
 
+//Big O - Recursive
 
+// Exercise 1 - Counting Sheep
+function countSheep(num) {
+  //stopping condition of base case
+  if (num === 0) {
+    console.log(`All sheep jumped over the fence`);
+  }
+  //this is the recursive case
+  //this will be executed until it reaches base case
+  else {
+    console.log(`${num}: Another sheep jump over the fence`);
+    countSheep(num - 1);
+  }
+}
+
+// answer: O(n) - linear
+
+// Exercise 2: Array Double
+
+function double_all(arr) {
+  if (!arr.length) {
+    return [];
+  }
+  return [arr[0] * 2, ...double_all(arr.slice(1))];
+}
+
+// answer: O(n) - linear
+
+// Exercise 3 - Reverse String
+function reverseString(str) {
+  if (str.length < 2) {
+    return str;
+  }
+  return reverseString(str.slice(1)) + str[0];
+}
+
+// answer: O(n) - linear
+
+// Exercise 4 - Triangular Number
+function triangle(n) {
+  if (n < 2) return n;
+  return n + triangle(n - 1);
+}
+
+// answer: O(n) - linear
+
+// Exercise 5 - String Splitter
+function split(str, sep) {
+  var idx = str.indexOf(sep);
+  if (idx == -1) return [str];
+  //you don't have to return an array, you can return a string as an array of
+  //character
+  //return str;
+  return [str.slice(0, idx)].concat(split(str.slice(idx + sep.length), sep));
+  //all these are valid syntax
+  //return (str.slice(0,idx) + (split(str.slice(idx + sep.length), sep)))
+  //return str.slice(0,idx).concat(split(str.slice(idx + sep.length), sep))
+}
+
+// answer: O(n) - linear
+
+//Exercise 6 - Binary Representation
+function convertToBinary(num) {
+  if (num > 0) {
+    let binary = Math.floor(num % 2); //save the reminder in binary
+    //divide the number by 2 and send that to the function again
+    //carry the reminder to the next recursion call
+    return convertToBinary(Math.floor(num / 2)) + binary;
+  } else {
+    return ""; //base case - at some point the divisions will lead to 0
+  }
+}
+
+// O(log(n)) - logarithmic
